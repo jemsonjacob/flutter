@@ -25,3 +25,4 @@ com.example.netflixx.app-resValues-23 C:\opt\netflixx\build\app\generated\res\re
 com.example.netflixx.app-packageDebugResources-24 C:\opt\netflixx\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
 com.example.netflixx.app-packageDebugResources-25 C:\opt\netflixx\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
 com.example.netflixx.app-debug-26 C:\opt\netflixx\build\app\intermediates\merged_res\debug\mergeDebugResources
+com.example.netflixx.app-debug-27 C:\opt\netflixx\build\path_provider_android\intermediates\packaged_res\debug\packageDebugResources
