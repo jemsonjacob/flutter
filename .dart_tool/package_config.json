@@ -14,6 +14,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "bordered_text",
+      "rootUri": "file:///C:/Users/smm/AppData/Local/Pub/Cache/hosted/pub.dev/bordered_text-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "characters",
       "rootUri": "file:///C:/Users/smm/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.4.0",
       "packageUri": "lib/",
@@ -266,7 +272,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-04-30T09:45:41.372225Z",
+  "generated": "2025-05-05T14:58:01.074792Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///C:/Users/smm/OneDrive/Documents/flutter_windows_3.29.2-stable/flutter",

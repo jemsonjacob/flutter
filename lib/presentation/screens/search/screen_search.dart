@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflixx/core/constant.dart';
 import 'package:netflixx/presentation/screens/search/widgets/search_result_widget.dart';
