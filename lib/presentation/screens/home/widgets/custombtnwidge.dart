@@ -5,14 +5,24 @@ class CustomIconBtn extends StatelessWidget {
 
   final String label;
 
-  const CustomIconBtn({super.key, required this.icondata, required this.label});
+  final double textSize;
+
+  final double iconSize;
+
+  const CustomIconBtn({
+    super.key,
+    required this.icondata,
+    required this.label,
+    this.textSize = 18,
+    this.iconSize = 30,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(icondata, color: Colors.white),
-        Text(label, style: TextStyle(fontSize: 18)),
+        Icon(icondata, color: Colors.white, size: iconSize),
+        Text(label, style: TextStyle(fontSize: textSize)),
       ],
     );
   }
