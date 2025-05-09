@@ -33,7 +33,9 @@ migrate_working_dir/
 .pub/
 /build/
 build/
+build
 *.apk
+.apk
 
 
 
@@ -47,3 +49,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+#ignore files
+lib/infrastructure/apikey.dart

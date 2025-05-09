@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflixx/core/constant.dart';
-import 'package:netflixx/presentation/screens/home/widgets/custombtnwidge.dart';
 import 'package:netflixx/presentation/screens/new&hot/widget/cominsoonwidget.dart';
 import 'package:netflixx/presentation/screens/new&hot/widget/everypne_watch.dart';
-import 'package:netflixx/presentation/widgets/videowidget.dart';
 //import 'package:netflixx/presentation/screens/home/widgets/custombtnwidge.dart';
 
 final String title = 'New & Hot';
