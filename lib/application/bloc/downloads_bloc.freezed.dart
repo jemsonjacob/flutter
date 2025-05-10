@@ -77,7 +77,7 @@ String toString() {
 /// @nodoc
 mixin _$DownloadsState {
 
- bool get isLoading; List<Downloads>? get downloads; Option<Either<MainFailure, List<Downloads>>> get downloadsFailureorSuccessoption;
+ bool get isLoading; List<Downloads> get downloads; Option<Either<MainFailure, List<Downloads>>> get downloadsFailureorSuccessoption;
 /// Create a copy of DownloadsState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -108,7 +108,7 @@ abstract mixin class $DownloadsStateCopyWith<$Res>  {
   factory $DownloadsStateCopyWith(DownloadsState value, $Res Function(DownloadsState) _then) = _$DownloadsStateCopyWithImpl;
 @useResult
 $Res call({
- bool isLoading, List<Downloads>? downloads, Option<Either<MainFailure, List<Downloads>>> downloadsFailureorSuccessoption
+ bool isLoading, List<Downloads> downloads, Option<Either<MainFailure, List<Downloads>>> downloadsFailureorSuccessoption
 });
 
 
@@ -125,11 +125,11 @@ class _$DownloadsStateCopyWithImpl<$Res>
 
 /// Create a copy of DownloadsState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? downloads = freezed,Object? downloadsFailureorSuccessoption = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? downloads = null,Object? downloadsFailureorSuccessoption = null,}) {
   return _then(_self.copyWith(
 isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
-as bool,downloads: freezed == downloads ? _self.downloads : downloads // ignore: cast_nullable_to_non_nullable
-as List<Downloads>?,downloadsFailureorSuccessoption: null == downloadsFailureorSuccessoption ? _self.downloadsFailureorSuccessoption : downloadsFailureorSuccessoption // ignore: cast_nullable_to_non_nullable
+as bool,downloads: null == downloads ? _self.downloads : downloads // ignore: cast_nullable_to_non_nullable
+as List<Downloads>,downloadsFailureorSuccessoption: null == downloadsFailureorSuccessoption ? _self.downloadsFailureorSuccessoption : downloadsFailureorSuccessoption // ignore: cast_nullable_to_non_nullable
 as Option<Either<MainFailure, List<Downloads>>>,
   ));
 }
@@ -141,17 +141,15 @@ as Option<Either<MainFailure, List<Downloads>>>,
 
 
 class _DownloadsState implements DownloadsState {
-  const _DownloadsState({required this.isLoading, final  List<Downloads>? downloads, required this.downloadsFailureorSuccessoption}): _downloads = downloads;
+  const _DownloadsState({required this.isLoading, required final  List<Downloads> downloads, required this.downloadsFailureorSuccessoption}): _downloads = downloads;
   
 
 @override final  bool isLoading;
- final  List<Downloads>? _downloads;
-@override List<Downloads>? get downloads {
-  final value = _downloads;
-  if (value == null) return null;
+ final  List<Downloads> _downloads;
+@override List<Downloads> get downloads {
   if (_downloads is EqualUnmodifiableListView) return _downloads;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(value);
+  return EqualUnmodifiableListView(_downloads);
 }
 
 @override final  Option<Either<MainFailure, List<Downloads>>> downloadsFailureorSuccessoption;
@@ -186,7 +184,7 @@ abstract mixin class _$DownloadsStateCopyWith<$Res> implements $DownloadsStateCo
   factory _$DownloadsStateCopyWith(_DownloadsState value, $Res Function(_DownloadsState) _then) = __$DownloadsStateCopyWithImpl;
 @override @useResult
 $Res call({
- bool isLoading, List<Downloads>? downloads, Option<Either<MainFailure, List<Downloads>>> downloadsFailureorSuccessoption
+ bool isLoading, List<Downloads> downloads, Option<Either<MainFailure, List<Downloads>>> downloadsFailureorSuccessoption
 });
 
 
@@ -203,11 +201,11 @@ class __$DownloadsStateCopyWithImpl<$Res>
 
 /// Create a copy of DownloadsState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? downloads = freezed,Object? downloadsFailureorSuccessoption = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? downloads = null,Object? downloadsFailureorSuccessoption = null,}) {
   return _then(_DownloadsState(
 isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
-as bool,downloads: freezed == downloads ? _self._downloads : downloads // ignore: cast_nullable_to_non_nullable
-as List<Downloads>?,downloadsFailureorSuccessoption: null == downloadsFailureorSuccessoption ? _self.downloadsFailureorSuccessoption : downloadsFailureorSuccessoption // ignore: cast_nullable_to_non_nullable
+as bool,downloads: null == downloads ? _self._downloads : downloads // ignore: cast_nullable_to_non_nullable
+as List<Downloads>,downloadsFailureorSuccessoption: null == downloadsFailureorSuccessoption ? _self.downloadsFailureorSuccessoption : downloadsFailureorSuccessoption // ignore: cast_nullable_to_non_nullable
 as Option<Either<MainFailure, List<Downloads>>>,
   ));
 }

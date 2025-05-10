@@ -11,4 +11,14 @@ class Downloads with _$Downloads {
 
   factory Downloads.fromJson(Map<String, dynamic> json) =>
       _$DownloadsFromJson(json);
+
+  @override
+  // TODO: implement posterPath
+  String? get posterPath => throw UnimplementedError();
+
+  @override
+  Map<String, dynamic> toJson() {
+    // TODO: implement toJson
+    throw UnimplementedError();
+  }
 }
