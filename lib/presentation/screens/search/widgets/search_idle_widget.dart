@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflixx/application/bloc/search/bloc/search_bloc.dart';
 import 'package:netflixx/core/colors/colors.dart';
 import 'package:netflixx/core/constant.dart';
 import 'package:netflixx/presentation/screens/search/widgets/maintitle_widget.dart';
@@ -18,13 +20,30 @@ class SearchIdleWidget extends StatelessWidget {
         kHeight,
         //last element have a space
         Expanded(
-          child: ListView.separated(
-            shrinkWrap:
-                true, //list create cheyumbo 1 itemthine height thane list full use cheyan
-            itemBuilder: (ctx, index) => TopSearchItemTile(),
-            //height
-            separatorBuilder: (ctx, index) => kHeight,
-            itemCount: 10,
+          child: BlocBuilder<SearchBloc, SearchState>(
+            builder: (context, state) {
+              if (state.isLoading) {
+                return Center(child: CircularProgressIndicator());
+              } else if (state.isError) {
+                return Center(child: Text('Error occured'));
+              } else if (state.idleList.isEmpty) {
+                return Center(child: Text('List is empty'));
+              }
+              return ListView.separated(
+                shrinkWrap:
+                    true, //list create cheyumbo 1 itemthine height thane list full use cheyan
+                itemBuilder: (ctx, index) {
+                  final movie = state.idleList[index];
+                  return TopSearchItemTile(
+                    title: movie.title ?? 'No title provide',
+                    imageUrl: '$imageAppendUrl${movie.posterPath}',
+                  );
+                },
+                //height
+                separatorBuilder: (ctx, index) => kHeight,
+                itemCount: state.idleList.length,
+              );
+            },
           ),
         ),
       ],
@@ -33,7 +52,13 @@ class SearchIdleWidget extends StatelessWidget {
 }
 
 class TopSearchItemTile extends StatelessWidget {
-  const TopSearchItemTile({super.key});
+  final String title;
+  final String imageUrl;
+  const TopSearchItemTile({
+    super.key,
+    required this.title,
+    required this.imageUrl,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +76,7 @@ class TopSearchItemTile extends StatelessWidget {
           ),
         ),
         kWidth,
-        Expanded(child: Text("Movies")),
+        Expanded(child: Text(title)),
         CircleAvatar(
           backgroundColor: KWhiteColor,
           radius: 25,

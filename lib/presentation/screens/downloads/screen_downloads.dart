@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflixx/application/bloc/downloads_bloc.dart';
+import 'package:netflixx/application/bloc/downloads/downloads_bloc.dart';
 import 'package:netflixx/core/colors/colors.dart';
 import 'package:netflixx/core/constant.dart';
 import 'package:netflixx/presentation/screens/downloads/download_widgets.dart';

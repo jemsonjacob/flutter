@@ -10,7 +10,7 @@ import 'package:dio/dio.dart';
 class DownloadsRepository implements IDownloadsRepo {
   @override
   Future<Either<MainFailure, List<Downloads>>> getDownloadImages() async {
-    // TODO: implement getDownloadImages
+    //  implement getDownloadImages
     try {
       final Response response = await Dio(
         BaseOptions(),
@@ -20,13 +20,13 @@ class DownloadsRepository implements IDownloadsRepo {
             (response.data['results'] as List).map((e) {
               return Downloads.fromJson(e);
             }).toList();
-
+        print(downloadList);
         return Right(downloadList);
       } else {
         return const Left(MainFailure.serverFailure());
       }
     } catch (e) {
-      print(e);
+      // print(e);
       return const Left(MainFailure.clientFailure());
     }
   }

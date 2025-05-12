@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netflixx/application/bloc/downloads_bloc.dart';
+import 'package:netflixx/application/bloc/downloads/downloads_bloc.dart';
+import 'package:netflixx/application/bloc/search/bloc/search_bloc.dart';
 import 'package:netflixx/core/colors/colors.dart';
 import 'package:netflixx/domain/di/injectable.dart';
 import 'package:netflixx/presentation/screens/main_screen/screens/screen_main_page.dart';
@@ -19,7 +20,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       //call downloadbloc
-      providers: [BlocProvider(create: (ctx) => getIt<DownloadsBloc>())],
+      providers: [
+        BlocProvider(create: (ctx) => getIt<DownloadsBloc>()),
+        BlocProvider(create: (ctx) => getIt<SearchBloc>()),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

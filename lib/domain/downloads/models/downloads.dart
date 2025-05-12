@@ -5,20 +5,19 @@ part 'downloads.g.dart';
 
 @freezed
 class Downloads with _$Downloads {
+  const Downloads._(); // Add this private constructor
+
   const factory Downloads({
+    //for image
+    // ignore: invalid_annotation_target
     @JsonKey(name: 'poster_path') required String? posterPath,
+    //for movie name
+    @JsonKey(name: 'title') required String? title,
   }) = _Downloads;
 
   factory Downloads.fromJson(Map<String, dynamic> json) =>
       _$DownloadsFromJson(json);
 
   @override
-  // TODO: implement posterPath
-  String? get posterPath => throw UnimplementedError();
-
-  @override
-  Map<String, dynamic> toJson() {
-    // TODO: implement toJson
-    throw UnimplementedError();
-  }
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }

@@ -16,7 +16,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Downloads {
 
-@JsonKey(name: 'poster_path') String? get posterPath;
+//for image
+// ignore: invalid_annotation_target
+@JsonKey(name: 'poster_path') String? get posterPath;//for movie name
+@JsonKey(name: 'title') String? get title;
 /// Create a copy of Downloads
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +32,16 @@ $DownloadsCopyWith<Downloads> get copyWith => _$DownloadsCopyWithImpl<Downloads>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Downloads&&(identical(other.posterPath, posterPath) || other.posterPath == posterPath));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Downloads&&(identical(other.posterPath, posterPath) || other.posterPath == posterPath)&&(identical(other.title, title) || other.title == title));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,posterPath);
+int get hashCode => Object.hash(runtimeType,posterPath,title);
 
 @override
 String toString() {
-  return 'Downloads(posterPath: $posterPath)';
+  return 'Downloads(posterPath: $posterPath, title: $title)';
 }
 
 
@@ -49,7 +52,7 @@ abstract mixin class $DownloadsCopyWith<$Res>  {
   factory $DownloadsCopyWith(Downloads value, $Res Function(Downloads) _then) = _$DownloadsCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'poster_path') String? posterPath
+@JsonKey(name: 'poster_path') String? posterPath,@JsonKey(name: 'title') String? title
 });
 
 
@@ -66,9 +69,10 @@ class _$DownloadsCopyWithImpl<$Res>
 
 /// Create a copy of Downloads
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? posterPath = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? posterPath = freezed,Object? title = freezed,}) {
   return _then(_self.copyWith(
 posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
+as String?,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -79,11 +83,15 @@ as String?,
 /// @nodoc
 @JsonSerializable()
 
-class _Downloads implements Downloads {
-  const _Downloads({@JsonKey(name: 'poster_path') required this.posterPath});
+class _Downloads extends Downloads {
+  const _Downloads({@JsonKey(name: 'poster_path') required this.posterPath, @JsonKey(name: 'title') required this.title}): super._();
   factory _Downloads.fromJson(Map<String, dynamic> json) => _$DownloadsFromJson(json);
 
+//for image
+// ignore: invalid_annotation_target
 @override@JsonKey(name: 'poster_path') final  String? posterPath;
+//for movie name
+@override@JsonKey(name: 'title') final  String? title;
 
 /// Create a copy of Downloads
 /// with the given fields replaced by the non-null parameter values.
@@ -98,16 +106,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Downloads&&(identical(other.posterPath, posterPath) || other.posterPath == posterPath));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Downloads&&(identical(other.posterPath, posterPath) || other.posterPath == posterPath)&&(identical(other.title, title) || other.title == title));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,posterPath);
+int get hashCode => Object.hash(runtimeType,posterPath,title);
 
 @override
 String toString() {
-  return 'Downloads(posterPath: $posterPath)';
+  return 'Downloads(posterPath: $posterPath, title: $title)';
 }
 
 
@@ -118,7 +126,7 @@ abstract mixin class _$DownloadsCopyWith<$Res> implements $DownloadsCopyWith<$Re
   factory _$DownloadsCopyWith(_Downloads value, $Res Function(_Downloads) _then) = __$DownloadsCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'poster_path') String? posterPath
+@JsonKey(name: 'poster_path') String? posterPath,@JsonKey(name: 'title') String? title
 });
 
 
@@ -135,9 +143,10 @@ class __$DownloadsCopyWithImpl<$Res>
 
 /// Create a copy of Downloads
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? posterPath = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? posterPath = freezed,Object? title = freezed,}) {
   return _then(_Downloads(
 posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
+as String?,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
