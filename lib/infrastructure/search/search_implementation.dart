@@ -24,6 +24,9 @@ class SearchImplementation implements SearchService {
       } else {
         return const Left(MainFailure.serverFailure());
       }
+    } on DioException catch (e) {
+      print(e);
+      return const Left(MainFailure.clientFailure());
     } catch (e) {
       // print(e);
       return const Left(MainFailure.clientFailure());

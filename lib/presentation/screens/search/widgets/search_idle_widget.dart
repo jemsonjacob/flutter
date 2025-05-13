@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflixx/application/bloc/search/bloc/search_bloc.dart';
+import 'package:netflixx/application/search/bloc/search_bloc.dart';
 import 'package:netflixx/core/colors/colors.dart';
 import 'package:netflixx/core/constant.dart';
 import 'package:netflixx/presentation/screens/search/widgets/maintitle_widget.dart';
-
-final imageUrl = 'https://m.media-amazon.com/images/I/81vRg6RVaFL._SY879_.jpg';
 
 class SearchIdleWidget extends StatelessWidget {
   const SearchIdleWidget({super.key});

@@ -1,6 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:netflixx/core/colors/colors.dart';
 import 'package:netflixx/core/constant.dart';
+import 'package:netflixx/domain/downloads/models/downloads.dart';
+
+class VideoListItemInheritedWidget extends InheritedWidget {
+  const VideoListItemInheritedWidget({
+    super.key,
+    required this.widget,
+    required this.movieData,
+  }) : super(child: widget);
+
+  final Widget widget;
+  final Downloads movieData;
+
+  static VideoListItemInheritedWidget? of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<VideoListItemInheritedWidget>();
+  }
+
+  @override
+  bool updateShouldNotify(VideoListItemInheritedWidget oldWidget) {
+    return oldWidget.movieData != movieData;
+  }
+}
 
 class VideoListItemWidget extends StatelessWidget {
   final int index;
@@ -9,9 +31,8 @@ class VideoListItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageUrl =
-        'https://m.media-amazon.com/images/I/81vRg6RVaFL._SY879_.jpg';
-
+    final posterPath =
+        VideoListItemInheritedWidget.of(context)?.movieData.posterPath;
     return Stack(
       children: [
         Container(color: Colors.accents[index % Colors.accents.length]),
@@ -43,7 +64,10 @@ class VideoListItemWidget extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         radius: 40,
-                        backgroundImage: NetworkImage(imageUrl),
+                        backgroundImage:
+                            posterPath == null
+                                ? null
+                                : NetworkImage('$imageAppendUrl$posterPath'),
                       ),
                       kHeight,
                       VideoIcons(icondata: Icons.emoji_emotions, title: 'LOL'),
