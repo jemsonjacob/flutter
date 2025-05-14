@@ -75,6 +75,138 @@ String toString() {
 
 
 /// @nodoc
+
+
+class LikeVideo implements FastLaughEvent {
+  const LikeVideo({required this.id});
+  
+
+ final  int id;
+
+/// Create a copy of FastLaughEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LikeVideoCopyWith<LikeVideo> get copyWith => _$LikeVideoCopyWithImpl<LikeVideo>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LikeVideo&&(identical(other.id, id) || other.id == id));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,id);
+
+@override
+String toString() {
+  return 'FastLaughEvent.likeVideo(id: $id)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $LikeVideoCopyWith<$Res> implements $FastLaughEventCopyWith<$Res> {
+  factory $LikeVideoCopyWith(LikeVideo value, $Res Function(LikeVideo) _then) = _$LikeVideoCopyWithImpl;
+@useResult
+$Res call({
+ int id
+});
+
+
+
+
+}
+/// @nodoc
+class _$LikeVideoCopyWithImpl<$Res>
+    implements $LikeVideoCopyWith<$Res> {
+  _$LikeVideoCopyWithImpl(this._self, this._then);
+
+  final LikeVideo _self;
+  final $Res Function(LikeVideo) _then;
+
+/// Create a copy of FastLaughEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? id = null,}) {
+  return _then(LikeVideo(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class UnLikeVideo implements FastLaughEvent {
+  const UnLikeVideo({required this.id});
+  
+
+ final  int id;
+
+/// Create a copy of FastLaughEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UnLikeVideoCopyWith<UnLikeVideo> get copyWith => _$UnLikeVideoCopyWithImpl<UnLikeVideo>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnLikeVideo&&(identical(other.id, id) || other.id == id));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,id);
+
+@override
+String toString() {
+  return 'FastLaughEvent.unLikeVideo(id: $id)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UnLikeVideoCopyWith<$Res> implements $FastLaughEventCopyWith<$Res> {
+  factory $UnLikeVideoCopyWith(UnLikeVideo value, $Res Function(UnLikeVideo) _then) = _$UnLikeVideoCopyWithImpl;
+@useResult
+$Res call({
+ int id
+});
+
+
+
+
+}
+/// @nodoc
+class _$UnLikeVideoCopyWithImpl<$Res>
+    implements $UnLikeVideoCopyWith<$Res> {
+  _$UnLikeVideoCopyWithImpl(this._self, this._then);
+
+  final UnLikeVideo _self;
+  final $Res Function(UnLikeVideo) _then;
+
+/// Create a copy of FastLaughEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? id = null,}) {
+  return _then(UnLikeVideo(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
 mixin _$FastLaughState {
 
  List<Downloads> get videoList; bool get isLoading; bool get isError;
