@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflixx/application/downloads/downloads_bloc.dart';
 import 'package:netflixx/application/fastLaugh/fast_laugh_bloc.dart';
+import 'package:netflixx/application/hot_and_new/hot_new_bloc.dart';
 import 'package:netflixx/application/search/bloc/search_bloc.dart';
 import 'package:netflixx/core/colors/colors.dart';
 import 'package:netflixx/domain/di/injectable.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (ctx) => getIt<DownloadsBloc>()),
         BlocProvider(create: (ctx) => getIt<SearchBloc>()),
         BlocProvider(create: (ctx) => getIt<FastLaughBloc>()),
+        BlocProvider(create: (ctx) => getIt<HotNewBloc>()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class VideoWidget extends StatelessWidget {
-  const VideoWidget({super.key});
+  final String url;
+  const VideoWidget({super.key, required this.url});
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +12,22 @@ class VideoWidget extends StatelessWidget {
           width: double.infinity,
           height: 200,
           child: Image.network(
-            'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQTnr7EfrCd61W8HAp3ZrXHc-aw7s1UmFG1DSi7wzs-_qx5_jUQg49GOUJ7zz9jYM7JNJV4PDxXGiF4EmH1b1hJ_mET8nVSfYdoOEF3EVAjg33_evJFawky2PYPL4kcpeFBbbD_X0xbHx9MREAaY2Ud66VdY.jpg?r=903',
+            url,
             fit: BoxFit.cover,
+            loadingBuilder: (
+              BuildContext _,
+              Widget child,
+              ImageChunkEvent? progress,
+            ) {
+              if (progress == null) {
+                return child;
+              } else {
+                return Center(child: CircularProgressIndicator(strokeWidth: 2));
+              }
+            },
+            errorBuilder: (BuildContext _, Object a, StackTrace? trace) {
+              return Center(child: Icon(Icons.wifi_off, color: Colors.white));
+            },
           ),
         ),
         Positioned(

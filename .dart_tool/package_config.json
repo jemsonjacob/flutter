@@ -308,6 +308,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///C:/Users/smm/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.20.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "io",
       "rootUri": "file:///C:/Users/smm/AppData/Local/Pub/Cache/hosted/pub.dev/io-1.0.5",
       "packageUri": "lib/",
@@ -704,7 +710,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-05-13T14:13:00.669651Z",
+  "generated": "2025-05-18T13:09:09.135286Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///C:/Users/smm/OneDrive/Documents/flutter_windows_3.29.2-stable/flutter",

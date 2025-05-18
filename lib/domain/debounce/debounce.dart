@@ -18,7 +18,6 @@ class Debouncer {
   }
 }
 
-
 // Declare it
 
 // final _debouncer = Debouncer(milliseconds: 500);
