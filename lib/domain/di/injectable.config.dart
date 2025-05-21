@@ -11,6 +11,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:netflixx/application/bloc/home_bloc_bloc.dart' as _i470;
 import 'package:netflixx/application/downloads/downloads_bloc.dart' as _i16;
 import 'package:netflixx/application/fastLaugh/fast_laugh_bloc.dart' as _i851;
 import 'package:netflixx/application/hot_and_new/hot_new_bloc.dart' as _i201;
@@ -49,6 +50,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i16.DownloadsBloc>(
       () => _i16.DownloadsBloc(gh<_i770.IDownloadsRepo>()),
+    );
+    gh.factory<_i470.HomeBlocBloc>(
+      () => _i470.HomeBlocBloc(gh<_i665.HotAndNewService>()),
     );
     gh.factory<_i201.HotNewBloc>(
       () => _i201.HotNewBloc(gh<_i665.HotAndNewService>()),

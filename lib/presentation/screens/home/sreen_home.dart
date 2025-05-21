@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflixx/application/bloc/home_bloc_bloc.dart';
+import 'package:netflixx/application/fastLaugh/fast_laugh_bloc.dart';
 
 import 'package:netflixx/core/constant.dart';
 import 'package:netflixx/presentation/screens/home/widgets/backgroundimgcard.dart';
@@ -16,6 +19,9 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<HomeBlocBloc>(context).add(const GetHomeScreenData());
+    });
     return Scaffold(
       body: ValueListenableBuilder(
         valueListenable: scrollNotifier,
@@ -34,21 +40,65 @@ class ScreenHome extends StatelessWidget {
 
             child: Stack(
               children: [
-                ListView(
-                  children: [
-                    BackgroundimgcardWidget(),
+                BlocBuilder<HomeBlocBloc, HomeBlocState>(
+                  builder: (context, state) {
+                    if (state.isError) {
+                      return Center(child: Text('Errror while loading'));
+                    } else if (state.isLoading) {
+                      return Center(
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      );
+                    }
+                    //released past year
+                    final releasedpostyear =
+                        state.pastMoviesList.map((e) {
+                          return '$imageAppendUrl${e.posterPath}';
+                        }).toList();
+                    // print(releasedpostyear.length);//20
+                    //trending
+                    final trnding =
+                        state.trendingMoviesList.map((e) {
+                          return '$imageAppendUrl${e.posterPath}';
+                        }).toList();
 
-                    MainMovieCard(title: 'Released in past'),
-                    kHeight,
-                    MainMovieCard(title: 'Trending Now'),
-                    kHeight,
-                    NumberTitleCard(),
-                    kHeight,
-                    MainMovieCard(title: 'Horror'),
-                    kHeight,
-                    MainMovieCard(title: 'Tense Drama'),
-                    kHeight,
-                  ],
+                    final horror =
+                        state.horrorMoviesList.map((e) {
+                          return '$imageAppendUrl${e.posterPath}';
+                        }).toList();
+                    final drama =
+                        state.dramaMoviesList.map((e) {
+                          return '$imageAppendUrl${e.posterPath}';
+                        }).toList();
+
+                    //top10
+                    final topten =
+                        state.topTvList.map((t) {
+                          return '$imageAppendUrl${t.posterPath}';
+                        }).toList();
+                    topten.shuffle();
+                    return ListView(
+                      children: [
+                        BackgroundimgcardWidget(),
+
+                        MainMovieCard(
+                          title: 'Released in past',
+                          posterPaths: releasedpostyear,
+                        ),
+                        kHeight,
+                        MainMovieCard(
+                          title: 'Trending Now',
+                          posterPaths: trnding,
+                        ),
+                        kHeight,
+                        NumberTitleCard(posterPaths: topten),
+                        kHeight,
+                        MainMovieCard(title: 'Horror', posterPaths: horror),
+                        kHeight,
+                        MainMovieCard(title: 'Tense Drama', posterPaths: drama),
+                        kHeight,
+                      ],
+                    );
+                  },
                 ),
                 scrollNotifier.value == true
                     ? AnimatedContainer(
@@ -136,7 +186,8 @@ class CustomPlayBtn extends StatelessWidget {
 }
 
 class NumberTitleCard extends StatelessWidget {
-  const NumberTitleCard({super.key});
+  final List<String> posterPaths;
+  const NumberTitleCard({super.key, required this.posterPaths});
 
   @override
   Widget build(BuildContext context) {
@@ -149,9 +200,9 @@ class NumberTitleCard extends StatelessWidget {
           maxHeight: 200,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 10,
+            itemCount: posterPaths.length,
             itemBuilder: (context, index) {
-              return Numbercardwidget(index: index);
+              return Numbercardwidget(index: index, imgurl: posterPaths[index]);
             },
           ),
         ),

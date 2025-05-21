@@ -5,8 +5,13 @@ import 'package:netflixx/presentation/screens/search/widgets/maintitle_widget.da
 
 class MainMovieCard extends StatelessWidget {
   final String title;
+  final List<String> posterPaths;
 
-  const MainMovieCard({super.key, required this.title});
+  const MainMovieCard({
+    super.key,
+    required this.title,
+    required this.posterPaths,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +24,9 @@ class MainMovieCard extends StatelessWidget {
           maxHeight: 200,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 10,
+            itemCount: posterPaths.length,
             itemBuilder: (context, index) {
-              return MainMovieTileWidget();
+              return MainMovieTileWidget(imgurl: posterPaths[index]);
             },
           ),
         ),

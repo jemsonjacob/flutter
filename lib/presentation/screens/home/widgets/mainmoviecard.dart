@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MainMovieTileWidget extends StatelessWidget {
-  const MainMovieTileWidget({super.key});
+  final String imgurl;
+  const MainMovieTileWidget({super.key, required this.imgurl});
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +12,7 @@ class MainMovieTileWidget extends StatelessWidget {
       margin: EdgeInsets.all(3),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(
-          image: NetworkImage(
-            'https://images-cdn.ubuy.co.in/680c0a8135dc230c670b4506-binfa-wall-art-music-prints-bedroom.jpg',
-          ),
-        ),
+        image: DecorationImage(image: NetworkImage(imgurl)),
       ),
     );
   }
